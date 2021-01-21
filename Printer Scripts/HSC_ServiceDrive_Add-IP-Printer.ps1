@@ -1,5 +1,4 @@
 <#
-Modified from @Sorvani
 PrinterName = is the 
 $PrinterName = "Name of the Printer"
 $PrinterPort = "Printer Port"
