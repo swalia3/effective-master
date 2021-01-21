@@ -1,0 +1,9 @@
+$computername = 'HERE'
+
+$instance = Get-CimInstance -ComputerName $computername -ClassName 'Win32_ComputerSystem'
+
+$invCimParams = @{
+    MethodName = 'JoinDomainOrWorkGroup'
+    Arguments = @{ FJoinOptions=3;Name=mydomain.local;Username="mydomain\domainuser";Password="mypassword" }
+}
+$instance | Invoke-CimMethod @invCimParams
