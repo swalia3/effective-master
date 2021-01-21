@@ -7,9 +7,9 @@ $PortHost = "IP address of the printer"
 $DriverLocation = "Driver Share"
 $DriverName = "Driver Name"
 setup the variables to throughout. These will become parameters.#>
-$PrinterName = "HP 500 Color"
-$PrinterPort = "10.202.20.23C"
-$PortHost = "10.202.20.23"
+$PrinterName = "CDK M605"
+$PrinterPort = "10.123.17.23"
+$PortHost = "10.123.17.23"
 $DriverLocation = "\\someshare\Software\Drivers\Printers\HP_LJPM570\hpcm570u.inf"
 $DriverName = "HP LaserJet 500 color MFP M570 PCL 6"
 
@@ -30,7 +30,7 @@ Add-PrinterPort -Name $PrinterPort -PrinterHostAddress $PortHost
 Invoke-Command {pnputil.exe -a $DriverLocation }
 
 # Add the print driver 
- Add-PrinterDriver -name $DriverName
+Add-PrinterDriver -name $DriverName
 
 # Add the printer
 Add-Printer -name $PrinterName -PortName $PrinterPort -DriverName $DriverName
