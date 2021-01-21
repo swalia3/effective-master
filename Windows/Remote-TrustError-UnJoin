@@ -1,0 +1,9 @@
+$computername = 'HERE'
+
+$instance = Get-CimInstance -ComputerName $computername -ClassName 'Win32_ComputerSystem'
+
+$invCimParams = @{
+    MethodName = 'UnjoinDomainOrWorkGroup'
+    Arguments = @{ FUnjoinOptions=0;Username="Administrator";Password="mypassword" }
+}
+$instance | Invoke-CimMethod @invCimParams
